@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BeardChamp.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BeardChamp.Pages
@@ -6,15 +7,19 @@ namespace BeardChamp.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private readonly ICompetitionRepository _competitionRepository;
 
-        public IndexModel(ILogger<IndexModel> logger)
+
+        public IEnumerable<Competition> Competitions { get; set; } = Enumerable.Empty<Competition>();
+        public IndexModel(ILogger<IndexModel> logger, ICompetitionRepository competitionRepository )
         {
             _logger = logger;
+            _competitionRepository = competitionRepository;
         }
 
-        public void OnGet()
+        public async void OnGet()
         {
-
+            Competitions = await _competitionRepository.GetAll();
         }
     }
 }

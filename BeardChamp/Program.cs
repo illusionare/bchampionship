@@ -14,6 +14,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 
+builder.Services.AddSingleton<ICompetitionRepository,CompetitionRepositoryMock>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
