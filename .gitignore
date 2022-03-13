@@ -6,3 +6,7 @@
 /BeardChamp/bin/Debug/net6.0
 *.user
 /BeardChamp/.vs/BeardChamp
+/Runner/obj
+/ItemsLibrary/obj
+/ItemsLibrary/bin/Debug/net6.0
+/Runner/bin/Debug/net6.0
