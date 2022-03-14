@@ -1,12 +1,11 @@
-﻿using ItemsLibrary.Actions;
-using ItemsLibrary.Interfaces;
+﻿using ItemsLibrary.Interfaces;
 
 namespace ItemsLibrary
 {
     public class World : IDeepClonable<World>
     {
         /// <summary>
-        /// Is world in a fninal state
+        /// Is world in a final state
         /// </summary>
         public bool IsTerminal { get; internal set; }
 
@@ -38,7 +37,7 @@ namespace ItemsLibrary
             IsTerminal = false;
         }
 
-        class DescendantLink
+        public class DescendantLink
         {
             public World Descendant { get; }
 
@@ -51,7 +50,7 @@ namespace ItemsLibrary
             public ITransformAction<World> Action { get; }
         }
 
-        private List<DescendantLink> descendantLinks = new List<DescendantLink>();
+        public List<DescendantLink> descendantLinks = new List<DescendantLink>();
 
         public void AddDescendant(World newWorld, ITransformAction<World> action)
         {
@@ -65,8 +64,8 @@ namespace ItemsLibrary
                 ToList();
 
             return PotentialActions.
-                Where(pAction => pAction.Condition.Match(futureUnits)).
-                Select(pAction => pAction.Action).
+                Where(pAction => pAction.PreCondition(this, futureUnits)).
+                Select(pAction => (ITransformAction<World>)pAction).
                 ToList();
 
         }
@@ -82,47 +81,5 @@ namespace ItemsLibrary
             copy.Units = Units.Select(unit => unit.DeepClone()).ToList();
             return copy;
         }
-    }
-
-    public class Generator : IUnit
-    {
-        public long GeneratingPower { get; private set; }
-
-        public Generator(long generatingPower)
-        {
-            GeneratingPower = generatingPower;
-        }
-
-        public long GeneratedAmount { get; private set; }
-
-        public IUnit DeepClone()
-        {
-            var clone = (Generator)MemberwiseClone();
-            clone.GeneratedAmount = GeneratedAmount;
-            clone.GeneratingPower = GeneratingPower;
-            return clone;
-        }
-
-        public IUnit TimePass(long deltaTime)
-        {
-            GeneratedAmount += deltaTime * GeneratingPower;
-            return this;
-            
-        }
-    }
-
-    public class GenerateTillMillion : IPrerequisiteCondition
-    {
-        public bool Match(List<IUnit> units)
-        {
-            var generator = units.Cast<Generator>().FirstOrDefault();
-            return generator?.GeneratedAmount > 1000000;
-        }
-    }
-
-    public class TerminateWhenMillion : IPotentialAction
-    {
-        public IPrerequisiteCondition Condition => new GenerateTillMillion();
-        public ITransformAction<World> Action => new WorldTerminateAction();
     }
 }

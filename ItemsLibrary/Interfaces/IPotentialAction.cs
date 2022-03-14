@@ -1,8 +1,6 @@
-﻿namespace ItemsLibrary.Interfaces
+﻿namespace ItemsLibrary.Interfaces;
+
+public interface IPotentialAction: ITransformAction<World>
 {
-    public interface IPotentialAction
-    {
-        IPrerequisiteCondition Condition { get; }
-        ITransformAction<World> Action { get; }
-    }
+    bool PreCondition(World world, List<IUnit> units);
 }

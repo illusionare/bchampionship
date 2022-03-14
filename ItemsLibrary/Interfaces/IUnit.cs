@@ -1,7 +1,6 @@
-﻿namespace ItemsLibrary.Interfaces
+﻿namespace ItemsLibrary.Interfaces;
+
+public interface IUnit : IDeepClonable<IUnit>
 {
-    public interface IUnit : IDeepClonable<IUnit>
-    {
-        IUnit TimePass(long deltaTime);
-    }
+    IUnit TimePass(long deltaTime);
 }

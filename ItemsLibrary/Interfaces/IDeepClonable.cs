@@ -1,7 +1,6 @@
-﻿namespace ItemsLibrary.Interfaces
+﻿namespace ItemsLibrary.Interfaces;
+
+public interface IDeepClonable<T> where T : class
 {
-    public interface IDeepClonable<T> where T : class
-    {
-        T DeepClone();
-    }
+    T DeepClone();
 }

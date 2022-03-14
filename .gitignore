@@ -10,3 +10,5 @@
 /ItemsLibrary/obj
 /ItemsLibrary/bin/Debug/net6.0
 /Runner/bin/Debug/net6.0
+/TestRunner/bin/Debug/net6.0
+/TestRunner/obj

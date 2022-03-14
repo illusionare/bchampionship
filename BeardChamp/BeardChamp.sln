@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeardChamp", "BeardChamp.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemsLibrary", "..\ItemsLibrary\ItemsLibrary.csproj", "{05FF9DC2-1F70-4A59-8BE7-AF6B2CC34126}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runner", "..\Runner\Runner.csproj", "{42BF76E4-EF24-4701-8B17-E213F85506F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner", "..\TestRunner\TestRunner.csproj", "{B12EF09E-3D74-45C3-9B63-68DDE452F57F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{05FF9DC2-1F70-4A59-8BE7-AF6B2CC34126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05FF9DC2-1F70-4A59-8BE7-AF6B2CC34126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05FF9DC2-1F70-4A59-8BE7-AF6B2CC34126}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42BF76E4-EF24-4701-8B17-E213F85506F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42BF76E4-EF24-4701-8B17-E213F85506F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42BF76E4-EF24-4701-8B17-E213F85506F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42BF76E4-EF24-4701-8B17-E213F85506F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B12EF09E-3D74-45C3-9B63-68DDE452F57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B12EF09E-3D74-45C3-9B63-68DDE452F57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B12EF09E-3D74-45C3-9B63-68DDE452F57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B12EF09E-3D74-45C3-9B63-68DDE452F57F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
